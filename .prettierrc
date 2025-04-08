@@ -1,12 +1,14 @@
 {
   "plugins": ["prettier-plugin-go-template", "prettier-plugin-tailwindcss"],
   "goTemplateBracketSpacing": true,
+  "tailwindStylesheet": "./assets/css/main.css",
   "htmlWhitespaceSensitivity": "css",
   "printWidth": 180,
-  "singleQuote": false,
-  "tabWidth": 4,
+  "singleQuote": true,
+  "tabWidth": 2,
   "useTabs": false,
-  "trailingComma": "es5",
+  "trailingComma": "all",
+  "semi": true,
   "overrides": [
     {
       "files": ["*.html"],
