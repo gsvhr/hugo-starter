@@ -1,0 +1,9 @@
+baseURL = '/'
+languageCode = 'ru'
+title = 'My New Hugo Site'
+
+disableKinds = ['taxonomy', 'term']
+
+[outputs]
+  home = ['html'] 
+
