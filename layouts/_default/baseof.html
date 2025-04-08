@@ -4,6 +4,7 @@
     {{ partial "head" . }}
   </head>
   <body>
+    <h1 class=" text-5xl font-semibold">Заголовок</h1>
     <!-- Code that all your templates share, like a header -->
     {{ block "main" . }}
       <!-- The part of the page that begins to differ between templates -->
@@ -12,4 +13,4 @@
     <!-- More shared code, perhaps a footer but that can be overridden if need be in  -->
     {{ end }}
   </body>
-</html>
+</html> 

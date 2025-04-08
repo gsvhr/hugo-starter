@@ -1,0 +1,26 @@
+{
+  "name": "hugo-starter",
+  "version": "1.0.0",
+  "description": "hugo tailwind landing page starter kit",
+  "homepage": "https://github.com/gsvhr/hugo-starter#readme",
+  "bugs": {
+    "url": "https://github.com/gsvhr/hugo-starter/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gsvhr/hugo-starter.git"
+  },
+  "license": "ISC",
+  "author": "Stepan Gorshenin",
+  "type": "commonjs",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "devDependencies": {
+    "@tailwindcss/cli": "^4.1.3",
+    "prettier": "^3.5.3",
+    "prettier-plugin-go-template": "^0.0.15",
+    "prettier-plugin-tailwindcss": "^0.6.11",
+    "tailwindcss": "^4.1.3"
+  }
+}
