@@ -2,10 +2,10 @@ import { Grid } from 'gridjs';
 
 async function getData() {
   try {
-    const response = await fetch('data.json');
+    const response = await fetch('price.json');
     if (!response.ok) throw new Error('Ошибка на сервере');
     const data = await response.json();
-    return data.data;
+    return data;
   } catch (error) {
     console.error('Ошибка при получении данных:', error);
     return [];
@@ -23,22 +23,22 @@ async function initGrid() {
     columns: [
       {
         name: 'Раздел',
-        id: 'section',
+        id: 'Раздел',
         attributes: {
           class: 'w-50',
         },
       },
       {
         name: 'Наименование работ',
-        id: 'work_type',
+        id: 'Вид работ',
       },
       {
         name: 'Ед.изм.',
-        id: 'unit',
+        id: 'Ед.изм.',
       },
       {
         name: 'Цена, руб.',
-        id: 'price',
+        id: 'kapremont-63.ru',
         attributes: {
           class: 'text-end',
         },
