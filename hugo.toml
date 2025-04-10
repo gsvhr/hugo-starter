@@ -1,6 +1,7 @@
 baseURL = '/'
 languageCode = 'ru'
-title = 'My New Hugo Site'
+title = 'Ремонт квартир'
+description = "Все виды сроительных работ в Самарской области"
 
 disableKinds = ['taxonomy', 'term']
 disableHugoGeneratorInject = true

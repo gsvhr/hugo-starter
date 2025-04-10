@@ -14,10 +14,15 @@ async function getData() {
 
 async function initGrid() {
   const data = await getData();
-  if (!data.length) {
-    document.getElementById('price').innerHTML = '<p>Нет данных для отображения</p>';
+  const priceElement = document.getElementById('price') as HTMLElement;
+  if (!priceElement) {
+    console.error('Элемент с ID "price" не найден');
+    return;
+  } else if (!data.length) {
+    priceElement.innerHTML = '<p>Нет данных для отображения</p>';
     return;
   }
+
   new Grid({
     data: data,
     columns: [
@@ -44,7 +49,7 @@ async function initGrid() {
         },
       },
     ],
-  }).render(document.getElementById('price'));
+  }).render(priceElement);
 }
 
 document.addEventListener('DOMContentLoaded', initGrid);
