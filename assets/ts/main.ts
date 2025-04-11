@@ -28,22 +28,22 @@ async function initGrid() {
     columns: [
       {
         name: 'Раздел',
-        id: 'Раздел',
+        id: 'section',
         attributes: {
           class: 'w-50',
         },
       },
       {
         name: 'Наименование работ',
-        id: 'Вид работ',
+        id: 'name',
       },
       {
         name: 'Ед.изм.',
-        id: 'Ед.изм.',
+        id: 'unit',
       },
       {
         name: 'Цена, руб.',
-        id: 'kapremont-63.ru',
+        id: 'price',
         attributes: {
           class: 'text-end',
         },
