@@ -1,55 +1,5 @@
-import { Grid } from 'gridjs';
+import { initForm } from './contact';
 
-async function getData() {
-  try {
-    const response = await fetch('price.json');
-    if (!response.ok) throw new Error('Ошибка на сервере');
-    const data = await response.json();
-    return data;
-  } catch (error) {
-    console.error('Ошибка при получении данных:', error);
-    return [];
-  }
-}
-
-async function initGrid() {
-  const data = await getData();
-  const priceElement = document.getElementById('price') as HTMLElement;
-  if (!priceElement) {
-    console.error('Элемент с ID "price" не найден');
-    return;
-  } else if (!data.length) {
-    priceElement.innerHTML = '<p>Нет данных для отображения</p>';
-    return;
-  }
-
-  new Grid({
-    data: data,
-    columns: [
-      {
-        name: 'Раздел',
-        id: 'section',
-        attributes: {
-          class: 'w-50',
-        },
-      },
-      {
-        name: 'Наименование работ',
-        id: 'name',
-      },
-      {
-        name: 'Ед.изм.',
-        id: 'unit',
-      },
-      {
-        name: 'Цена, руб.',
-        id: 'price',
-        attributes: {
-          class: 'text-end',
-        },
-      },
-    ],
-  }).render(priceElement);
-}
-
-document.addEventListener('DOMContentLoaded', initGrid);
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll<HTMLFormElement>('.contact-form').forEach(initForm);
+});

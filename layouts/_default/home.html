@@ -1,4 +1,4 @@
 {{ define "main" }}
   {{ .Content }}
-  <div id="price"></div>
+  {{ partial "contact-form" (dict "showMessageInput" true "city" .Site.Params.city) }}
 {{ end }}
