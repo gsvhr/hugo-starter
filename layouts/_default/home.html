@@ -1,4 +1,4 @@
 {{ define "main" }}
   {{ .Content }}
-  {{ partial "contact-form" (dict "showMessageInput" true "city" .Site.Params.city) }}
+  {{ partial "contact-form" (dict "showMessageInput" false "city" .Site.Params.city) }}
 {{ end }}

@@ -60,12 +60,16 @@ const handleFormSubmit = async (form: HTMLFormElement) => {
 
   const { phoneInput, phoneError, messageInput, messageError } = getFormElements(form);
 
-  if (!phoneInput || !phoneError || !messageInput || !messageError) {
+  if (!phoneInput || !phoneError) {
     isSubmitting = false;
     return;
   }
-
-  const isValid = [validatePhone(phoneInput, phoneError), validateMessage(messageInput, messageError)].every(Boolean);
+  let isValid = false;
+  if (!messageInput || !messageError) {
+    isValid = validatePhone(phoneInput, phoneError);
+  } else {
+    isValid = [validatePhone(phoneInput, phoneError), validateMessage(messageInput, messageError)].every(Boolean);
+  }
 
   if (!isValid) {
     form.classList.add('was-validated');
@@ -74,7 +78,7 @@ const handleFormSubmit = async (form: HTMLFormElement) => {
   }
 
   try {
-    const result = await sendMessage(new Message(form.dataset.city ?? 'Город не указан', phoneInput.value.replace(/\D/g, ''), messageInput.value.trim()));
+    const result = await sendMessage(new Message(form.dataset.city ?? 'Город не указан', phoneInput.value.replace(/\D/g, ''), messageInput?.value.trim()));
 
     showToast(result.status === 'success' ? 'Наш специалист перезвонит Вам <br> в течении 5 мин.' : result.error?.message || 'Произошла ошибка при отправке.', result.status);
     form.reset();

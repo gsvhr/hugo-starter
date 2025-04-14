@@ -1,20 +1,27 @@
-<form class="contact-form needs-validation" data-city="{{ .city }}" novalidate>
-  <input type="text" name="Username" class="required-text" autocomplete="off" pattern=".{0,0}" />
+<form class="contact-form needs-validation w-full" data-city="{{ .city }}" novalidate>
+  <input type="text" aria-hidden="true" tabindex="-1" name="Username" class="required-text sr-only" autocomplete="off" pattern=".{0,0}" />
   <input
     type="tel"
     inputmode="numeric"
     name="Phone"
-    class="form-input"
+    class="form-input mt-4 w-full bg-gray-200 p-2 dark:bg-gray-600"
     aria-label="Номер телефона для обратной связи"
     placeholder="Ваш номер телефона"
-    autocomplete="tel-country-code"
+    autocomplete="tel"
     pattern="^[\+0-9\s\(\)\-]{18,18}"
     required
   />
   <div class="phone-error text-red-800 dark:text-red-300"></div>
   {{ if .showMessageInput }}
-    <textarea style="height: 200px" name="Message" class="form-input" aria-label="Вопрос, который вы хотите задать" placeholder="Ваш вопрос..." required></textarea>
+    <textarea
+      style="height: 200px"
+      name="Message"
+      class="form-input mt-4 w-full bg-gray-200 p-2 dark:bg-gray-600"
+      aria-label="Вопрос, который вы хотите задать"
+      placeholder="Ваш вопрос..."
+      required
+    ></textarea>
     <div class="message-error text-red-800 dark:text-red-300"></div>
   {{ end }}
-  <button type="submit" class="btn btn-primary mt-3" aria-label="Отправить форму">Отправить</button>
+  <button type="submit" class="btn btn-primary mt-4" aria-label="Отправить форму">Отправить</button>
 </form>
