@@ -3,9 +3,32 @@
   <head>
     {{ partial "head" . }}
   </head>
-  <body class="dark:bg-gray-800 dark:text-gray-200">
+  <body class="font-normal dark:bg-gray-800 dark:text-gray-200">
     <!-- Code that all your templates share, like a header -->
-    <header></header>
+    <header class="container py-8">
+      <h1 class="inline-block">{{ .Title }}</h1>
+      <div class="theme-switcher inline-block">
+        <button
+          type="button"
+          role="switch"
+          aria-label="Toggle theme"
+          class="relative inline-flex h-6 w-11 items-center rounded-full bg-gray-500 transition-colors duration-200 focus:outline-none"
+        >
+          <span class="sr-only">Switch theme</span>
+          <span class="inline-block h-4 w-4 translate-x-6 transform rounded-full bg-white shadow-lg transition-transform duration-200 dark:translate-x-1">
+            <!-- Иконки -->
+            <span class="absolute inset-0 flex items-center justify-center text-amber-400 opacity-100 transition-opacity duration-200 dark:text-gray-200 dark:opacity-0">
+              <!-- Солнце -->
+              <span class="icon-[line-md--sunny]"></span>
+            </span>
+            <span class="absolute inset-0 flex items-center justify-center text-gray-800 opacity-0 transition-opacity duration-200 dark:text-blue-800 dark:opacity-100">
+              <!-- Луна -->
+              <span class="icon-[line-md--moon]"></span>
+            </span>
+          </span>
+        </button>
+      </div>
+    </header>
     <main class="container py-8">
       {{ block "main" . }}
         <!-- The part of the page that begins to differ between templates -->

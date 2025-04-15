@@ -16,6 +16,8 @@ home = ['html']
 [markup.goldmark]
 [markup.goldmark.renderer]
 unsafe = true
+[markup.goldmark.parser]
+autoHeadingID = false
 
 [build]
 noJSConfigInAssets = true
