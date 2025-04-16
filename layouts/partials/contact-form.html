@@ -1,3 +1,8 @@
+{{ if .showMessageInput }}
+  <h3>Задать вопрос</h3>
+{{ else }}
+  <h3>Заказать обратный звонок</h3>
+{{ end }}
 <form class="contact-form needs-validation w-full space-y-4" data-city="{{ .city }}" novalidate>
   <div>
     <input type="text" aria-hidden="true" tabindex="-1" name="Username" class="required-text sr-only" autocomplete="off" pattern=".{0,0}" />
