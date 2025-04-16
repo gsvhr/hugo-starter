@@ -21,6 +21,7 @@
   @apply transition-all duration-200 ease-out;
   @apply focus:ring-2 focus:ring-offset-2 focus:outline-none;
   @apply disabled:pointer-events-none disabled:opacity-50;
+  @apply hover:cursor-pointer;
 
   /* Светлая тема */
   @apply bg-gray-100 text-gray-800 hover:bg-gray-200;
@@ -34,15 +35,15 @@
 }
 
 /* Акцентная кнопка (primary) */
-@utility btn-primary {
-  @apply bg-blue-600 text-white hover:bg-blue-700;
+.btn-primary {
+  @apply bg-green-600 text-white hover:bg-green-700;
   @apply border-transparent;
-  @apply focus:ring-blue-500;
-  @apply dark:bg-blue-500 dark:hover:bg-blue-600;
+  @apply focus:ring-green-500;
+  @apply dark:bg-green-500 dark:hover:bg-green-600;
 }
 
 /* Вторичная кнопка (secondary) */
-@utility btn-secondary {
+.btn-secondary {
   @apply bg-purple-600 text-white hover:bg-purple-700;
   @apply border-transparent;
   @apply focus:ring-purple-500;
@@ -50,7 +51,7 @@
 }
 
 /* Прозрачная кнопка (ghost) */
-@utility btn-ghost {
+.btn-ghost {
   @apply bg-transparent text-gray-600 hover:bg-gray-100;
   @apply border-transparent shadow-none;
   @apply dark:text-gray-300 dark:hover:bg-gray-800/50;
