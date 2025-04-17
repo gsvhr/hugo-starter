@@ -1,9 +1,16 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 @import 'tailwindcss';
-@plugin "@iconify/tailwind4"; /* https://icon-sets.iconify.design */
-@custom-variant dark (&:where(.dark, .dark *));
+/* @custom-variant dark (&:where(.dark, .dark *)); */
+@custom-variant dark (&:where([data-theme="dark"], [data-theme="dark"] *));
 @source "hugo_stats.json";
 @source "../ts/";
+@plugin "@iconify/tailwind4"; /* https://icon-sets.iconify.design */
+@plugin "daisyui" {
+  themes:
+    light --default,
+    dark --prefersdark,
+    luxury;
+}
 
 @theme {
   --default-font-family: -apple-system, BlinkMacSystemFont, 'Inter';
@@ -14,52 +21,9 @@
   padding-inline: 1rem;
 }
 
-/* Базовая кнопка */
-.btn {
-  @apply inline-flex items-center justify-center;
-  @apply rounded-lg px-4 py-2 text-sm font-medium;
-  @apply transition-all duration-200 ease-out;
-  @apply focus:ring-2 focus:ring-offset-2 focus:outline-none;
-  @apply disabled:pointer-events-none disabled:opacity-50;
-  @apply hover:cursor-pointer;
-
-  /* Светлая тема */
-  @apply bg-gray-100 text-gray-800 hover:bg-gray-200;
-  @apply border border-gray-300;
-  @apply focus:ring-gray-400 focus:ring-offset-white;
-
-  /* Тёмная тема */
-  @apply dark:bg-gray-800 dark:text-gray-100 dark:hover:bg-gray-700;
-  @apply dark:border-gray-600;
-  @apply dark:focus:ring-gray-500 dark:focus:ring-offset-gray-900;
-}
-
-/* Акцентная кнопка (primary) */
-.btn-primary {
-  @apply bg-green-600 text-white hover:bg-green-700;
-  @apply border-transparent;
-  @apply focus:ring-green-500;
-  @apply dark:bg-green-500 dark:hover:bg-green-600;
-}
-
-/* Вторичная кнопка (secondary) */
-.btn-secondary {
-  @apply bg-purple-600 text-white hover:bg-purple-700;
-  @apply border-transparent;
-  @apply focus:ring-purple-500;
-  @apply dark:bg-purple-500 dark:hover:bg-purple-600;
-}
-
-/* Прозрачная кнопка (ghost) */
-.btn-ghost {
-  @apply bg-transparent text-gray-600 hover:bg-gray-100;
-  @apply border-transparent shadow-none;
-  @apply dark:text-gray-300 dark:hover:bg-gray-800/50;
-}
-
 @layer base {
   h1 {
-    @apply mb-6 text-4xl font-light dark:text-white;
+    @apply text-4xl font-light dark:text-white;
   }
   h2 {
     @apply mb-5 text-3xl font-normal dark:text-white;

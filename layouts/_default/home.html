@@ -1,5 +1,5 @@
 {{ define "main" }}
-  <div class="prose dark:prose-invert">
+  <div class="dark:prose-invert prose">
     {{ .Content }}
   </div>
   {{ partial "contact-form" (dict "showMessageInput" false "city" .Site.Params.city) }}
@@ -8,7 +8,7 @@
   <button class="btn">Базовая</button>
   <button class="btn btn-primary">Основная</button>
   <button class="btn btn-secondary">Вторичная</button>
-  <button class="btn btn-ghost">Прозрачная</button>
+  <button class="btn btn-error">Прозрачная</button>
   <span class="icon-[fluent-emoji--cloud-with-lightning-and-rain] text-8xl"></span>
   <span class="icon-[line-md--phone-call-loop] text-4xl text-green-600"></span>
   <span class="icon-[svg-spinners--clock] text-4xl text-blue-600"></span>

@@ -1,12 +1,12 @@
 <!doctype html>
-<html lang="ru" dir="ltr" class="scroll-smooth">
+<html lang="ru" dir="ltr" data-theme="dark" class="scroll-smooth">
   <head>
     {{ partial "head" . }}
   </head>
   <body class="font-sans font-normal dark:bg-gray-800 dark:text-gray-200">
     <!-- Code that all your templates share, like a header -->
     <header class="container py-8">
-      <h1 class="inline-block">{{ .Title }}</h1>
+      <h1>{{ .Title }}</h1>
       {{ partial "switcher" . }}
     </header>
     <main class="container py-8">
