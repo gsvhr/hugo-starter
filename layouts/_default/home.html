@@ -5,6 +5,38 @@
   {{ partial "contact-form" (dict "showMessageInput" false "city" .Site.Params.city) }}
 
 
+  <!-- Input fields -->
+  <input type="text" placeholder="Regular input" class="input-bordered input w-full max-w-xs" />
+  <input type="text" placeholder="Primary input" class="input w-full max-w-xs input-primary" />
+
+  <!-- Select -->
+  <select class="select-bordered select w-full max-w-xs">
+    <option disabled selected>Pick one</option>
+    <option>Option 1</option>
+    <option>Option 2</option>
+  </select>
+
+  <!-- Checkbox -->
+  <div class="form-control">
+    <label class="label cursor-pointer">
+      <span class="label-text">Remember me</span>
+      <input type="checkbox" class="checkbox checkbox-primary" />
+    </label>
+  </div>
+
+  <div class="card w-96 bg-base-100 shadow-xl">
+    <figure>
+      <img src="image.jpg" alt="Card Image" />
+    </figure>
+    <div class="card-body">
+      <h2 class="card-title">Card Title</h2>
+      <p>This is a basic card with image and text.</p>
+      <div class="card-actions justify-end">
+        <button class="btn btn-primary">Action</button>
+      </div>
+    </div>
+  </div>
+
   <button class="btn">Базовая</button>
   <button class="btn btn-primary">Основная</button>
   <button class="btn btn-secondary">Вторичная</button>
