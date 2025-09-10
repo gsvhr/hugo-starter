@@ -1,20 +1,14 @@
 import { initContactForm } from './contact';
+import { ThemeManager } from './theme';
 
 document.addEventListener('DOMContentLoaded', () => {
   // Инициализация контактных форм
   document.querySelectorAll<HTMLFormElement>('.contact-form').forEach(initContactForm);
 
   // Инициализация переключателей темы
-  document.querySelectorAll<HTMLInputElement>('.theme-controller').forEach((checkbox) => {
-    const savedTheme = localStorage.getItem('theme') || 'light';
-    checkbox.checked = savedTheme === 'dark';
-    document.documentElement.dataset.theme = savedTheme;
-    checkbox.addEventListener('change', (e) => {
-      const target = e.target as HTMLInputElement;
-      const theme = target.checked ? 'dark' : 'light';
-      localStorage.setItem('theme', theme);
-      document.documentElement.dataset.theme = theme;
-    });
+  const themeManager = ThemeManager.getInstance();
+  document.querySelectorAll<HTMLInputElement>('.theme-controller').forEach(switchEl => {
+    themeManager.registerSwitch(switchEl);
   });
 
   // Проверка поддержки CSS  браузером

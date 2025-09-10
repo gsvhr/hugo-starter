@@ -1,3 +1,3 @@
 # hugo-starter
 
-hugo tailwind landing page starter kit
+hugo Bootstrap landing page starter kit
