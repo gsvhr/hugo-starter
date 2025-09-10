@@ -4,45 +4,30 @@
   </div>
   {{ partial "contact-form" (dict "showMessageInput" false "city" .Site.Params.city) }}
 
+  {{ partial "contact-form" (dict "showMessageInput" true "city" .Site.Params.city) }}
 
-  <!-- Input fields -->
-  <input type="text" placeholder="Regular input" class="input-bordered input w-full max-w-xs" />
-  <input type="text" placeholder="Primary input" class="input w-full max-w-xs input-primary" />
+  <!-- Button trigger modal -->
+<button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  Launch demo modal
+</button>
 
-  <!-- Select -->
-  <select class="select-bordered select w-full max-w-xs">
-    <option disabled selected>Pick one</option>
-    <option>Option 1</option>
-    <option>Option 2</option>
-  </select>
-
-  <!-- Checkbox -->
-  <div class="form-control">
-    <label class="label cursor-pointer">
-      <span class="label-text">Remember me</span>
-      <input type="checkbox" class="checkbox checkbox-primary" />
-    </label>
-  </div>
-
-  <div class="card w-96 bg-base-100 shadow-xl">
-    <figure>
-      <img src="image.jpg" alt="Card Image" />
-    </figure>
-    <div class="card-body">
-      <h2 class="card-title">Card Title</h2>
-      <p>This is a basic card with image and text.</p>
-      <div class="card-actions justify-end">
-        <button class="btn btn-primary">Action</button>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal title</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
       </div>
     </div>
   </div>
+</div>
 
-  <button class="btn">Базовая</button>
-  <button class="btn btn-primary">Основная</button>
-  <button class="btn btn-secondary">Вторичная</button>
-  <button class="btn btn-error">Прозрачная</button>
-  <span class="icon-[fluent-emoji--cloud-with-lightning-and-rain] text-8xl"></span>
-  <span class="icon-[line-md--phone-call-loop] text-4xl text-green-600"></span>
-  <span class="icon-[svg-spinners--clock] text-4xl text-blue-600"></span>
-  {{ partial "contact-form" (dict "showMessageInput" true "city" .Site.Params.city) }}
 {{ end }}

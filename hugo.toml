@@ -4,6 +4,7 @@ title = 'Название сайта'
 
 disableKinds = ['taxonomy', 'term']
 disableHugoGeneratorInject = true
+enableRobotsTXT = true
 
 [params]
 city = 'Тольятти'
@@ -30,5 +31,5 @@ autoHeadingID = false
     source = 'node_modules/bootstrap/scss'
     target = 'assets/scss'
   [[module.mounts]]
-    source = 'node_modules/bootstrap/dist/js/bootstrap.bundle.min.js'
-    target = 'assets/js/vendor/bootstrap.bundle.min.js'
+    source = 'node_modules/bootstrap/dist/js/bootstrap.min.js'
+    target = 'assets/js/vendor/bootstrap.min.js'

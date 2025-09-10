@@ -14,3 +14,6 @@
     {{ end }}
   {{ end }}
 {{ end }}
+
+{{- $bootstrapJs := resources.Get "js/vendor/bootstrap.min.js" | fingerprint | resources.Copy "js/vendor/bootstrap.min.js" }}
+<script defer src="{{ $bootstrapJs.RelPermalink }}"></script>

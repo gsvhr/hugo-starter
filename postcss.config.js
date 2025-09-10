@@ -20,10 +20,7 @@ module.exports = {
           return [];
         }
       },
-      safelist: {
-        standard: [     ],
-        greedy: [       ]
-      }
+      safelist: [ 'data-bs-theme' ]        
     }) : null,
     process.env.HUGO_ENVIRONMENT === 'production' ? autoprefixer() : null,
     process.env.HUGO_ENVIRONMENT === 'production' ? cssnano() : null

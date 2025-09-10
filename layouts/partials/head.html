@@ -9,11 +9,4 @@
   {{ end }}
 </title>
 <meta name="description" content="{{ .Site.Params.Description }}">
-{{/* Style */}}
-{{- $sassOptions := dict "targetPath" "css/main.css" "outputStyle" "expanded" "precision" 6 -}}
-{{- $style := resources.Get "scss/main.scss" | toCSS $sassOptions -}}
-{{- if hugo.IsProduction -}}
-  {{- $style = $style | postCSS (dict "config" "postcss.config.js") -}}
-{{- end -}}
-{{- $style = $style | fingerprint -}}
-<link href="{{ $style.RelPermalink }}" rel="stylesheet" integrity="{{ $style.Data.Integrity }}">
+{{ partial "styles" . }}

@@ -3,22 +3,25 @@
   <head>
     {{ partial "head" . }}
   </head>
-  <body class="font-sans font-normal dark:bg-gray-800 dark:text-gray-200">
-    <!-- Code that all your templates share, like a header -->
-    <header class="container py-8">
-      <h1>{{ .Title }}</h1>
-      {{ partial "switcher" . }}
+  <body class="min-vh-100 d-flex flex-column">
+    <header>
+      <div class="container py-3">
+        <h1>{{ .Title }}</h1>
+        {{ partial "switcher" . }}
+      </div>
     </header>
-    <main class="container py-8">
+    <main class="flex-grow-1">
+      <div class="container py-3">
       {{ block "main" . }}
         <!-- The part of the page that begins to differ between templates -->
       {{ end }}
+      </div>
     </main>
-    <!-- Code that all your templates share, like a footer -->
-    <footer class="container py-8">
-      {{ partial "switcher" . }}
+    <footer>
+      <div class="container py-3">
+        {{ partial "switcher" . }}
+      </div>      
     </footer>
-    {{ partial "toast" . }}
     {{ partial "scripts" . }}
   </body>
 </html>
