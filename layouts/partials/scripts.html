@@ -1,4 +1,4 @@
-{{ with resources.Get "ts/main.ts" }}
+{{ with resources.Get "js/main.js" }}
   {{ $opts := dict
     "minify" hugo.IsProduction
     "sourceMap" (cond hugo.IsProduction "" "external")
@@ -15,5 +15,5 @@
   {{ end }}
 {{ end }}
 
-{{- $bootstrapJs := resources.Get "js/vendor/bootstrap.min.js" | fingerprint | resources.Copy "js/vendor/bootstrap.min.js" }}
+{{ $bootstrapJs := resources.Get "js/bootstrap.min.js" | fingerprint | resources.Copy "js/bootstrap.min.js" }}
 <script defer src="{{ $bootstrapJs.RelPermalink }}"></script>

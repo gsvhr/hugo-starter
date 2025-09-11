@@ -1,8 +1,13 @@
-$primary: #146c43;
+$primary: #014f00;
 
 $headings-color-dark: #ffffff;
 $body-color-dark: #eeeeee;
 $body-bg-dark: #27272a;
+$navbar-brand-margin-end: 0;
+
+.navbar {
+  background: linear-gradient(135deg, #002900 0%, #014f00 30%, #016901 70%, #014f00 100%);
+}
 
 @import "bootstrap";
 
@@ -17,4 +22,12 @@ img {
 
 .cursor-pointer {
     cursor: pointer !important;
+}
+
+.theme-icon { transition: all 0.5s ease; }
+
+@include media-breakpoint-down(sm) {
+    .text-xs-small {
+        font-size: 0.875em !important;
+    }
 }

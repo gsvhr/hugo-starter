@@ -1,5 +1,5 @@
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
 <title itemprop="name">
   {{ if .IsHome }}
     {{ .Site.Title }}
@@ -10,3 +10,8 @@
 </title>
 <meta name="description" content="{{ .Site.Params.Description }}">
 {{ partial "styles" . }}
+<!-- Inline Theme JS -->
+    {{ $themeJS := resources.Get "js/theme.js" | minify }}
+    <script>{{ $themeJS.Content | safeJS }}</script>
+    
+  {{ partial "svg-sprite" . }}

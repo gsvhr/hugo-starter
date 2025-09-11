@@ -7,8 +7,35 @@ disableHugoGeneratorInject = true
 enableRobotsTXT = true
 
 [params]
-city = 'Тольятти'
+city = "Тольятти"
 description = "Описание сайта"
+phone = "+7 (495) 123-45-67"
+logo = "/images/sudexpert_logo_white.svg"
+
+[[menu.main]]
+name = "Главная"
+url = "/"
+weight = 1
+
+[[menu.main]]
+name = "Услуги"
+url = "/expertise/"
+weight = 2
+
+[[menu.main]]
+name = "Цены"
+url = "/prices/"
+weight = 3
+
+[[menu.main]]
+name = "Документы"
+url = "/documents/"
+weight = 4
+
+[[menu.main]]
+name = "Контакты"
+url = "/contacts/"
+weight = 5
 
 [outputs]
 home = ['html']
@@ -32,4 +59,4 @@ autoHeadingID = false
     target = 'assets/scss'
   [[module.mounts]]
     source = 'node_modules/bootstrap/dist/js/bootstrap.min.js'
-    target = 'assets/js/vendor/bootstrap.min.js'
+    target = 'assets/js/bootstrap.min.js'

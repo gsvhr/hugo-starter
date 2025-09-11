@@ -1,0 +1,50 @@
+<nav class="navbar navbar-expand-lg bg-primary" data-bs-theme="dark">
+  <div class="container-sm d-inline-flex px-0">
+    <!-- Бренд -->
+    <a class="navbar-brand d-flex align-items-center px-1" href="{{ .Site.BaseURL }}">
+      <img src="{{ .Site.Params.logo | default "/images/sudexpert_logo_white.svg" }}" width="48" height="48" alt="Логотип СУДЭКСПЕРТ">
+      <div class="d-inline-flex flex-column fs-6 px-2">
+        <span class="fw-bold">СУДЭКСПЕРТ</span>
+        <span class="label-city small">
+          {{ .Site.Params.city | default "Москва" }}
+          <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" fill="currentColor" class="bi bi-clock" viewBox="0 0 16 16">
+            <path d="M8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z"/>
+            <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm7-8A7 7 0 1 1 1 8a7 7 0 0 1 14 0z"/>
+          </svg> 24/7
+        </span>
+      </div>
+    </a>
+<!-- Иконки для контактов /телеграмм/воцап/емайл/телефон/ -->
+<div class="d-flex flex-grow-1 flex-column flex-sm-row justify-content-around justify-content-xl-evenly align-items-center text-xs-small">
+  <a href="#" class="text-decoration-none text-nowrap text-white" title="Телефон">
+    <svg width="22" height="22" class="icon-shadow">
+      <use xlink:href="#icon-email"></use>
+    </svg>
+    sud163@yandex.ru
+  </a>
+  <a href="#" class="text-decoration-none text-nowrap text-white" title="Телефон">
+    <svg width="22" height="22" class="icon-shadow">
+      <use xlink:href="#icon-phone"></use>
+    </svg>
+    +7 (8482) 63-12-88
+  </a>
+</div>
+    <!-- Меню навигации (всегда видимое, с горизонтальной прокруткой на мобильных) -->
+    <div id="top-menu-block" class="d-flex justify-content-lg-end overflow-auto">
+      <ul class="navbar-nav flex-row text-nowrap">
+        {{ $currentPage := . }}
+        {{ range .Site.Menus.main }}
+        <li class="nav-item">
+          <a class="nav-link p-2 {{ if eq $currentPage.RelPermalink .URL }}active{{ end }}" href="{{ .URL }}">
+            {{ .Name }}
+          </a>
+        </li>
+        {{ end }}
+        <li class="nav-item">
+            <!-- Переключатель темы -->
+            {{ partial "switcher" . }}             
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

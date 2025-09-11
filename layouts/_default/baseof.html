@@ -5,9 +5,9 @@
   </head>
   <body class="min-vh-100 d-flex flex-column">
     <header>
+      {{ partial "menu" . }}
       <div class="container py-3">
-        <h1>{{ .Title }}</h1>
-        {{ partial "switcher" . }}
+        <h1>{{ .Title }}</h1>        
       </div>
     </header>
     <main class="flex-grow-1">
@@ -17,10 +17,30 @@
       {{ end }}
       </div>
     </main>
-    <footer>
+    <footer class="bg-body-secondary">
       <div class="container py-3">
         {{ partial "switcher" . }}
-      </div>      
+      </div>   
+              <!-- Bootstrap Breakpoint Indicator -->
+<div class="d-flex justify-content-center p-2">
+  <div class="bg-dark text-white rounded-pill px-3 py-1 shadow-lg">
+    <span class="d-inline d-sm-none">XS</span>
+    <span class="d-none d-sm-inline d-md-none">SM</span>
+    <span class="d-none d-md-inline d-lg-none">MD</span>
+    <span class="d-none d-lg-inline d-xl-none">LG</span>
+    <span class="d-none d-xl-inline d-xxl-none">XL</span>
+    <span class="d-none d-xxl-inline">XXL</span>
+    
+    <span class="ms-2 text-white">
+      <span class="d-inline d-sm-none">&lt;576px</span>
+      <span class="d-none d-sm-inline d-md-none">576px+</span>
+      <span class="d-none d-md-inline d-lg-none">768px+</span>
+      <span class="d-none d-lg-inline d-xl-none">992px+</span>
+      <span class="d-none d-xl-inline d-xxl-none">1200px+</span>
+      <span class="d-none d-xxl-inline">1400px+</span>
+    </span>
+  </div>
+</div>   
     </footer>
     {{ partial "scripts" . }}
   </body>
