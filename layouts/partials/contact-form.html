@@ -3,33 +3,39 @@
 {{ else }}
   <h3>Заказать обратный звонок</h3>
 {{ end }}
-<form class="contact-form needs-validation w-full space-y-4" data-city="{{ .city }}" novalidate>
-  <div>
-    <input type="text" aria-hidden="true" tabindex="-1" name="Username" class="required-text sr-only" autocomplete="off" pattern=".{0,0}" />
-    <span class="phone-error text-xs text-red-700 dark:text-red-400"></span>
+<form class="contact-form needs-validation w-100 mb-3" data-city="{{ .city }}" novalidate>
+  <div class="mb-3 d-none">
+    <input type="text" aria-hidden="true" tabindex="-1" name="Username" class="form-control" autocomplete="off" pattern=".{0,0}" />
+  </div>
+  <div class="mb-3">
+    <label for="phoneInput" class="form-label">Ваш номер телефона</label>
     <input
       type="tel"
       inputmode="numeric"
       name="Phone"
-      class="form-input w-full bg-gray-200 p-2 dark:bg-gray-600"
+      id="phoneInput"
+      class="form-control"
       aria-label="Номер телефона для обратной связи"
-      placeholder="Ваш номер телефона"
+      placeholder="Только цифры, например: +79991234567"
       autocomplete="tel"
       pattern="^[\+0-9\s\(\)\-]{18,18}"
       required
     />
+    <div class="invalid-feedback phone-error"></div>
   </div>
   {{ if .showMessageInput }}
-    <div>
-      <span class="message-error text-xs text-red-700 dark:text-red-400"></span>
+    <div class="mb-3">
+      <label for="messageInput" class="form-label">Ваш вопрос</label>
       <textarea
         style="height: 200px"
         name="Message"
-        class="form-input w-full bg-gray-200 p-2 dark:bg-gray-600"
+        id="messageInput"
+        class="form-control"
         aria-label="Вопрос, который вы хотите задать"
-        placeholder="Ваш вопрос..."
+        placeholder="Укажите вид экспертизы или объект, по которому нужна консультация"
         required
       ></textarea>
+      <div class="invalid-feedback message-error"></div>
     </div>
   {{ end }}
   <button type="submit" class="btn btn-primary" aria-label="Отправить форму">Отправить</button>

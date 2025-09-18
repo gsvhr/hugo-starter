@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="SudexpertShield" xmlns="http://www.w3.org/2000/svg" version="1.1" xmlns:i="http://ns.adobe.com/AdobeIllustrator/10.0/" viewBox="0 0 100 100">
+  <defs>
+    <style>
+      .st0 {
+        fill: #fff;
+      }
+
+      .st1 {
+        fill: #fff;
+      }
+
+      .st2 {
+        fill: #308a2d;
+      }
+
+      .st3 {
+        fill: #60a55e;
+      }
+    </style>
+  </defs>
+  <g id="Badge">
+    <polygon id="Badge1" data-name="Badge" class="st2" points="66.6 45.7 66.6 55.5 74.2 55.5 76.7 55.5 82.2 55.5 82.2 46 82.2 45.7 66.6 45.7"/>
+    <rect id="BadgeText2" class="st1" x="68.7" y="51.6" width="11.5" height="1.8"/>
+    <rect id="BadgeText1" class="st1" x="68.7" y="48.4" width="8" height="1.8"/>
+  </g>
+  <g id="Tie">
+    <polygon id="TieBottom" class="st3" points="50 98.8 53.9 93.9 61.1 84.6 59.6 73 50 85.1 40.6 73.2 39.1 84.9 46.1 93.9 50 98.8"/>
+    <polygon id="TieTop" class="st2" points="37.9 38.2 44.8 40.9 40.6 73.2 50 85.1 59.6 73 55.3 40.9 62 38.3 50 16.9 37.9 38.2"/>
+  </g>
+  <g id="Shield">
+    <polygon id="Shield2" class="st0" points="76.7 57.1 72.9 57.1 59.6 73 61.1 84.6 82.7 57.1 82.2 57.1 76.7 57.1"/>
+    <path id="Shield1" class="st0" d="M83.9,55.5h0l16.1-20.4-16.5-30.9-33.5,4.6L17.4,4.2,0,35.1l39.1,49.8,1.5-11.6L8.5,34.9l5.1-8.2,23,14,1.4-2.5,12-21.3,12,21.4,1.4,2.4,23-14.2,5.1,8.3-7.8,9.3h.1v11.4h.1ZM35.5,37.3l-20-13.9,7.3-11.9,23.2,4.2-10.5,21.6ZM64.4,37.3l-10.6-21.6,23.3-4.2,7.2,11.8-19.9,14Z"/>
+  </g>  
+</svg>

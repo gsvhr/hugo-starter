@@ -7,15 +7,22 @@ class ThemeManager {
   init() {
     this.setTheme(this.getPreferredTheme());
     this.bindEvents();
-    this.updateIcons();
   }
 
   getStoredTheme() {
-    return localStorage.getItem(this.themeKey);
+    try {
+      return localStorage.getItem(this.themeKey);
+    } catch (e) {
+      return null;
+    }
   }
 
   setStoredTheme(theme) {
-    localStorage.setItem(this.themeKey, theme);
+    try {
+      localStorage.setItem(this.themeKey, theme);
+    } catch (e) {
+      // Можно добавить обработку ошибки, если нужно
+    }
   }
 
   getPreferredTheme() {
@@ -25,6 +32,8 @@ class ThemeManager {
   }
 
   setTheme(theme) {
+    const currentTheme = document.documentElement.getAttribute('data-bs-theme');
+    if (currentTheme === theme) return; // Не обновлять, если тема уже установлена
     document.documentElement.setAttribute('data-bs-theme', theme);
     this.updateIcons();
   }
@@ -32,7 +41,6 @@ class ThemeManager {
   updateIcons() {
     const theme = this.getPreferredTheme();
     const icons = document.querySelectorAll('.theme-icon');
-    
     icons.forEach(icon => {
       if (icon.classList.contains('theme-icon-light')) {
         icon.classList.toggle('opacity-100', theme === 'light');
@@ -48,20 +56,23 @@ class ThemeManager {
   }
 
   bindEvents() {
-    document.addEventListener('click', (e) => {
-      if (e.target.closest('.theme-toggle-btn')) {
-        const currentTheme = this.getPreferredTheme();
-        const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
-        this.setStoredTheme(newTheme);
-        this.setTheme(newTheme);
-      }
-    });
+    document.addEventListener('click', this.handleThemeToggle.bind(this));
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', this.handleSystemThemeChange.bind(this));
+  }
 
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
-      if (!this.getStoredTheme()) {
-        this.setTheme(this.getPreferredTheme());
-      }
-    });
+  handleThemeToggle(e) {
+    if (e.target.closest('.theme-toggle-btn')) {
+      const currentTheme = this.getPreferredTheme();
+      const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+      this.setStoredTheme(newTheme);
+      this.setTheme(newTheme);
+    }
+  }
+
+  handleSystemThemeChange() {
+    if (!this.getStoredTheme()) {
+      this.setTheme(this.getPreferredTheme());
+    }
   }
 }
 

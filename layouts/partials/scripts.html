@@ -1,19 +1,27 @@
-{{ with resources.Get "js/main.js" }}
-  {{ $opts := dict
-    "minify" hugo.IsProduction
-    "sourceMap" (cond hugo.IsProduction "" "external")
-    "targetPath" "js/main.js"
-  }}
-  {{ with . | js.Build $opts }}
-    {{ if hugo.IsProduction }}
-      {{ with . | fingerprint }}
-        <script src="{{ .RelPermalink }}" integrity="{{ .Data.Integrity }}" crossorigin="anonymous"></script>
-      {{ end }}
-    {{ else }}
-      <script src="{{ .RelPermalink }}"></script>
-    {{ end }}
-  {{ end }}
-{{ end }}
-
 {{ $bootstrapJs := resources.Get "js/bootstrap.min.js" | fingerprint | resources.Copy "js/bootstrap.min.js" }}
-<script defer src="{{ $bootstrapJs.RelPermalink }}"></script>
+{{ $mainJsSrc := resources.Get "js/main.js" }}
+{{ $formJsSrc := resources.Get "js/form.js" }}
+{{ $opts := dict
+  "minify" (not hugo.IsDevelopment)
+  "sourceMap" (cond hugo.IsDevelopment "external" "")
+  "targetPath" "js/main.js"
+}}
+{{ $formOpts := dict
+  "minify" (not hugo.IsDevelopment)
+  "sourceMap" (cond hugo.IsDevelopment "external" "")
+  "targetPath" "js/form.js"
+}}
+{{ $mainJs := $mainJsSrc | js.Build $opts }}
+{{ $formJs := $formJsSrc | js.Build $formOpts }}
+
+{{ if hugo.IsDevelopment }}
+  <script src="{{ $bootstrapJs.RelPermalink }}"></script>
+  <script src="{{ $mainJs.RelPermalink }}"></script>
+  <script src="{{ $formJs.RelPermalink }}"></script>
+{{ else }}
+  {{ $mainJsFingerprinted := $mainJs | fingerprint }}
+  {{ $formJsFingerprinted := $formJs | fingerprint }}
+  <script defer src="{{ $bootstrapJs.RelPermalink }}"></script>
+  <script defer src="{{ $mainJsFingerprinted.RelPermalink }}" integrity="{{ $mainJsFingerprinted.Data.Integrity }}" crossorigin="anonymous"></script>
+  <script defer src="{{ $formJsFingerprinted.RelPermalink }}" integrity="{{ $formJsFingerprinted.Data.Integrity }}" crossorigin="anonymous"></script>
+{{ end }}

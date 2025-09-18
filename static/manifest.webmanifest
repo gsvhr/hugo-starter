@@ -1,0 +1,28 @@
+{
+  "name": "СУДЭКСПЕРТ — Независимая экспертиза",
+  "short_name": "СУДЭКСПЕРТ",
+  "description": "Оценка, независимая экспертиза, консультации и услуги эксперта.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#014f00",
+  "lang": "ru",
+  "dir": "ltr",
+  "orientation": "portrait",
+  "scope": "/",
+  "icons": [
+    {
+      "src": "/sudexpert_logo_light.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/sudexpert_logo_dark.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    }
+  ],
+  "prefer_related_applications": false
+}
